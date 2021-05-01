@@ -7,7 +7,24 @@ class TicTacToe():
 
 
     def welcome_message(self):
-        print("Welcome to the Tic-Tac-Toe Game!!" + '\n')
+        print("""
+ _________                               _________                                   _________
+|_________| ______   _______            |_________|     ___       _______           |_________| ________    ______
+    | |    |______| | ______|               | |        // \\\     |  _____|              | |    |  ____  |  | _____|
+    | |       ||    | |         _____       | |       //   \\\    | |         _____      | |    | |    | |  | |____
+    | |       ||    | |        |_____|      | |      //_____\\\   | |        |_____|     | |    | |    | |  |  ____|
+    | |     __||__  | |_____                | |     //-------\\\  | |_____               | |    | |____| |  | |_____
+    |_|    |______| |_______|               |_|    //         \\\ |_______|              |_|    |________|  |______|
+        
+
+
+
+
+
+
+
+
+Welcome to the Tic-Tac-Toe Game!!""" + '\n')
 
 
     def reference_key(self):
@@ -20,13 +37,16 @@ class TicTacToe():
         -------------
         | 7 | 8 | 9 |
         -------------
+        
         ''')
 
 
     def game_grid(self):
 
-        for _ in range(50):
+        for _ in range(48):
             print()
+
+        
 
         print('''
         -------------
@@ -137,8 +157,10 @@ class TicTacToe():
         return result
                 
     def winner_check(self):
-
-        if self.grid[0][0] == self.grid[1][0] and self.grid[1][0] == self.grid[2][0] and self.grid[2][0] != ' ':
+        if self.grid == [[' ',' ',' '],[' ',' ',' '],[' ',' ',' ']]:
+            return (0,'Initialize')
+        
+        elif self.grid[0][0] == self.grid[1][0] and self.grid[1][0] == self.grid[2][0] and self.grid[2][0] != ' ':
             return (1,self.grid[0][0])
         
         elif self.grid[0][1] == self.grid[1][1] and self.grid[1][1] == self.grid[2][1] and self.grid[2][1] != ' ':
@@ -162,5 +184,5 @@ class TicTacToe():
         elif self.grid[0][2] == self.grid[1][1] and self.grid[1][1] == self.grid[2][0] and self.grid[2][0] != ' ':
             return (1,self.grid[0][2])
 
-        else:
-            return (0,'')   
+        elif self.grid[0][0] != ' ' or self.grid[0][1] != ' ' or self.grid[0][2] != ' ' or self.grid[1][0] != ' ' or self.grid[1][1] != ' 'or self.grid[1][2] != ' 'or self.grid[2][0] != ' ' or self.grid[2][1] != ' ' or self.grid[2][2] != ' ':
+            return (2,'tie')   

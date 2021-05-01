@@ -29,11 +29,15 @@ player_character_key = {character_1 : player_name1, character_2 : player_name2}
 player_1 = game.player(player_name1, character_1)
 player_2 = game.player(player_name2, character_2)
 
+
+print()
+print()
 print(f'{player_1[0]} got {player_1[1]}')
 print(f'{player_2[0]} got {player_2[1]}')
 print()
+print()
 
-_ = input('Press any key to start')
+_ = input('Press any key to start...')
 print()
 
 game.game_grid()
@@ -42,7 +46,7 @@ first_chance = random.randint(0,1)
 turn = 1
 
 for _ in range(9999):
-    if game.winner_check()[0] != 1:
+    if game.winner_check()[0] == 0 or game.winner_check()[0] != 1:
         try:
             box = int(input('Enter the box number where you want to mark- '))
             if first_chance == 0:
@@ -74,6 +78,16 @@ for _ in range(9999):
         
         except ValueError: print('Invalid Input')    
     
-    else:
+    elif game.winner_check()[0] == 2:
+        print('''It's a tie!''')
+        print()
+        print()
+        n = input('Press any key to close...')
+        break
+
+    elif game.winner_check()[0] == 1:
         print(f'{player_character_key[game.winner_check()[1]]} has won the game!')
+        print()
+        print()
+        n = input('Press any key to close...')
         break
