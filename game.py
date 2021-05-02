@@ -45,8 +45,8 @@ game.game_grid()
 first_chance = random.randint(0,1)
 turn = 1
 
-for _ in range(9999):
-    if game.winner_check()[0] == 0 or game.winner_check()[0] != 1:
+while True:
+    if game.winner_check()[0] == 0 or game.winner_check() == [3, 'continue']:
         try:
             box = int(input('Enter the box number where you want to mark- '))
             if first_chance == 0:
@@ -78,7 +78,7 @@ for _ in range(9999):
         
         except ValueError: print('Invalid Input')    
     
-    elif game.winner_check()[0] == 2:
+    elif game.winner_check() == [2, 'tie']:
         print('''It's a tie!''')
         print()
         print()

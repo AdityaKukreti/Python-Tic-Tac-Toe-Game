@@ -158,7 +158,7 @@ Welcome to the Tic-Tac-Toe Game!!""" + '\n')
                 
     def winner_check(self):
         if self.grid == [[' ',' ',' '],[' ',' ',' '],[' ',' ',' ']]:
-            return (0,'Initialize')
+            return [0, 'start']
         
         elif self.grid[0][0] == self.grid[1][0] and self.grid[1][0] == self.grid[2][0] and self.grid[2][0] != ' ':
             return (1,self.grid[0][0])
@@ -184,5 +184,9 @@ Welcome to the Tic-Tac-Toe Game!!""" + '\n')
         elif self.grid[0][2] == self.grid[1][1] and self.grid[1][1] == self.grid[2][0] and self.grid[2][0] != ' ':
             return (1,self.grid[0][2])
 
-        elif self.grid[0][0] != ' ' or self.grid[0][1] != ' ' or self.grid[0][2] != ' ' or self.grid[1][0] != ' ' or self.grid[1][1] != ' 'or self.grid[1][2] != ' 'or self.grid[2][0] != ' ' or self.grid[2][1] != ' ' or self.grid[2][2] != ' ':
-            return (2,'tie')   
+        elif self.grid[0][0] != ' ' and self.grid[0][1] != ' ' and self.grid[0][2] != ' ' and self.grid[1][0] != ' ' and self.grid[1][1] != ' ' and self.grid[1][2] != ' ' and self.grid[2][0] != ' ' and self.grid[2][1] != ' ' and self.grid[2][2] != ' ':
+            return [2, 'tie']    
+
+        else:
+            return [3, 'continue']
+        
